@@ -32,7 +32,7 @@ export function translate2d(dx, dy) {
  */
 export function scale2d(sx, sy) {
   return function scale(x, y) {
-    return [sx * x, sy * y];
+    return [sx * x, sy * y];``
   }
 }
 
@@ -47,7 +47,9 @@ export function scale2d(sx, sy) {
  *  transformed coordinate pair in the form [x, y]
  */
 export function composeTransform(f, g) {
-  throw new Error('Implement the composeTransform function');
+  return function composed(x, y) {
+    return g(...f(x, y));
+  }
 }
 
 /**
